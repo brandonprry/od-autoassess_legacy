@@ -1,0 +1,18 @@
+#By setting your values here, you can avoid long command line strings
+
+#CLNT=""
+#RANGE=""
+#CMPNY=""
+#LOGOPATH=""
+#OVASSERVER=""
+#OVASPORT=""
+#OVASUSER=""
+#OVASPASS=""
+#SINGLEHOST=""
+#MSPLOITDRIVER=""
+#MSPLOITCONN=""
+#MBSAUSER=""
+#MBSAPASS=""
+#MBSAPATH=""
+#RUNREMMBSA=""
+#SENDTO=""

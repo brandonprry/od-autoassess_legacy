@@ -1,0 +1,3 @@
+Use hydra and wordlists in /opt to check for weak credentials on common protocols
+
+Write script to generate bare-bones nagios definitions from nmap files

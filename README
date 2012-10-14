@@ -1,0 +1,46 @@
+**WARNING** Vulnerability scans use known exploits that can potentially shut down services or full systems.
+**WARNING** Make sure you have permission to scan the network and that the owner of the network understands
+**WARNING** ALL of the risks.
+
+USAGE: od-autoassess [OPTIONS]
+
+
+Example:
+
+#od-autoassess --client="Home Network" --range=192.168.0.0/24 --profile-only
+
+#od-autoassess --client="Jenny's Laptop" --single-host=192.168.0.104 --profile-only
+
+This is a full (foreign, so local host is removed from scan) scan, scanning each computer with MBSA remotely,
+starting openvassd if necessary, using mysql for metasploit, generating custom reports with company name and logo,
+and sending the report to the email specified when the scan is done (using a local server such as sendmail)
+
+#od-autoassess --client="Widget's INC" --range=192.168.0.0/24 --foreign \
+	--enable-mbsa --mbsa-user=Admin --mbsa-pass=password --mbsa-remote-path="C:\path\to\mbsacli.exe" \
+	--start-openvassd --openvas-user="ovas" --openvas-pass="ovas_pass" \
+	--metasploit-sql-driver="mysql" --metasploit-sql-conn="mysql:pass@127.0.0.1/metasploit"
+	--company-name="Just Two Guys, LLC" --logo-path=/path/to/logo.jpg \
+	--send-to="firstguy@justtwoguys.com"
+
+Options:
+	--profile-only		Only profile the network, run no vulnerability assessments and create no reports. Requires --client and --range or --zenity.
+	--client		Name of the client whose network is being scanned.
+	--range			IP range to be scanned.
+	--company-name		Name that you would like the PDF reports created with.
+	--logo-path		Path to the logo you want to customize reports with. Requires --company-name
+	--openvas-server	IP address to a remote (or local) server for openvassd.
+	--openvas-port		Port which openvassd will be listening on.
+	--openvas-user		Username for openvassd server.
+	--openvas-pass		Password for openvassd server.
+	--single-host		Single host to scan.
+	--metasploit-sql-driver	Database driver to use for metasploit. Options are 'mysql', 'postgresql', 'sqlite3' (UNSTABLE).
+	--metasploit-sql-conn	Connection string to the SQL database if using MySQL or PostgreSQL.
+	--mbsa-user		User to log in as on remote machine when running MBSA.
+	--mbsa-pass		Password for the user on the remote machine when running MBSA.
+	--enable-mbsa		Enable an MBSA scan on remote machines if applicable.
+	--send-to			Using the local machine as the mail server, send a copy of the scan archive to this email address.
+	--foreign			Host running scan is foreign on the network.
+	--start-openvassd	If a local openvassd process is not running, attempt to start the server.
+	--debug			If something isn't working right, turn on debugging to see it's error.
+	--print			Print reports to the default printer. (WARNING: This could be a lot of paper! Seriously, 17 page single-host server reports)
+	--help			Prints this help.

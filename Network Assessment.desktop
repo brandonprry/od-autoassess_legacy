@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=true
+Icon[en_CA]=gksu
+Name[en_CA]=Network Assessment
+Exec=gksu od-autoassess_gui
+Name=Network Assessment
+Icon=gksu
